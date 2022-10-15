@@ -12,7 +12,7 @@ today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
 birthday = os.getenv('BIRTHDAY')
-birthday1 = os.getenv('MYBIRTHDAY')
+MYbirthday = os.getenv('MYBIRTHDAY')
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
@@ -70,12 +70,12 @@ def get_birthday_left():
 
 # 我的生日倒计时
 def get_birthday_left1():
-  if birthday1 is None:
+  if MYbirthday is None:
     print('没有设置 MYBIRTHDAY')
     return 23
-  next1 = datetime.strptime(str(today.year) + "-" + birthday1, "%Y-%m-%d")
+  next1 = datetime.strptime(str(today.year) + "-" + MYbirthday, "%Y-%m-%d")
   if next1 < nowtime:
-    next1 = next1.replace(year1=next1.year + 1)
+    next1 = next1.replace(year=next1.year + 1)
   return (next1 - today).days
 
 
