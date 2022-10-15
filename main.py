@@ -165,12 +165,24 @@ data = {
     "value": math.floor(weather['temp']),
     "color": get_random_color()
   },
+  "mytemperature": {
+    "value": math.floor(myweather['temp']),
+    "color": get_random_color()
+  },
   "highest": {
     "value": math.floor(weather['high']),
     "color": get_random_color()
   },
+  "myhighest": {
+    "value": math.floor(myweather['high']),
+    "color": get_random_color()
+  },
   "lowest": {
     "value": math.floor(weather['low']),
+    "color": get_random_color()
+  },
+   "mylowest": {
+    "value": math.floor(myweather['low']),
     "color": get_random_color()
   },
   "love_days": {
