@@ -49,11 +49,11 @@ def get_weather1():
   if mycity is None:
     print('请设置我的城市')
     return None
-  url1 = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + mycity
-  res1 = requests.get(url1).json()
-  if res1 is None:
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + mycity
+  res = requests.get(url).json()
+  if res is None:
     return None
-  myweather = res1['data']['list'][0]
+  myweather = res['data']['list'][0]
   return myweather
 
 # 获取当前日期为星期几
@@ -142,7 +142,7 @@ data = {
     "color": get_random_color()
   },
    "myweather": {
-    "value": myweather['myweather'],
+    "value": myweather['weather'],
     "color": get_random_color()
   },
   "humidity": {
