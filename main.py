@@ -11,6 +11,7 @@ today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
 
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
+mycity = os.getenv('MYCITY')
 birthday = os.getenv('BIRTHDAY')
 MYbirthday = os.getenv('MYBIRTHDAY')
 
@@ -107,6 +108,10 @@ if weather is None:
 data = {
   "city": {
     "value": city,
+    "color": get_random_color()
+  },
+  "mycity": {
+    "value": mycity,
     "color": get_random_color()
   },
   "date": {
