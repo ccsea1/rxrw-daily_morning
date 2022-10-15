@@ -75,7 +75,7 @@ def get_birthday_left1():
     return 0
   next1 = datetime.strptime(str(today.year) + "-" + birthday1, "%Y-%m-%d")
   if next1 < nowtime:
-    next1 = next1.replace(year=next.year + 1)
+    next1 = next1.replace(year=next1.year + 1)
   return (next1 - today).days
 
 
