@@ -45,6 +45,17 @@ def get_weather():
   weather = res['data']['list'][0]
   return weather
 
+def get_weather1():
+  if mycity is None:
+    print('请设置我的城市')
+    return None
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + mycity
+  res = requests.get(url).json()
+  if res is None:
+    return None
+  myweather = res['data']['list'][0]
+  return myweather
+
 # 获取当前日期为星期几
 def get_week_day():
   week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
@@ -102,8 +113,12 @@ except WeChatClientException as e:
 
 wm = WeChatMessage(client)
 weather = get_weather()
+myweather = get_weather1()
 if weather is None:
   print('获取天气失败')
+  exit(422)
+if myweather is None:
+  print('获取我的天气失败')
   exit(422)
 data = {
   "city": {
@@ -124,6 +139,10 @@ data = {
   },
   "weather": {
     "value": weather['weather'],
+    "color": get_random_color()
+  },
+   "myweather": {
+    "value": weather['myweather'],
     "color": get_random_color()
   },
   "humidity": {
