@@ -72,7 +72,7 @@ def get_birthday_left():
 def get_birthday_left1():
   if birthday1 is None:
     print('没有设置 MYBIRTHDAY')
-    return 0
+    return 23
   next1 = datetime.strptime(str(today.year) + "-" + birthday1, "%Y-%m-%d")
   if next1 < nowtime:
     next1 = next1.replace(year1=next1.year + 1)
